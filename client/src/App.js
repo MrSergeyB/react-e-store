@@ -1,4 +1,5 @@
 import React from "react";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "./App.css";
 import Home from "../src/pages/home";
 import About from "../src/pages/about";
@@ -7,15 +8,14 @@ import Contacts from "./pages/contacts";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import NotFound from "./pages/not-found";
-
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {Provider} from "react-redux";
+import store from "./store";
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
       <Router>
         <Navbar />
-
         <Switch>
           <Route exact path="/" component={Home} />{" "}
           <Route path="/about" component={About} />
@@ -23,9 +23,10 @@ function App() {
           <Route path="/contacts" component={Contacts} />
           <Route component={NotFound} />
         </Switch>
+
         <Footer />
       </Router>
-    </div>
+    </Provider>
   );
 }
 

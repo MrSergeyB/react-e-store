@@ -1,4 +1,4 @@
-export const GET_INPUTS = "GET_INPUTS";
+export const GET_TOP_SALES = "GET_TOP_SALES";
 export const ADD_INPUT = "ADD_INPUT";
 export const SET_LOADING = "SET_LOADING";
 export const DELETE_INPUT = "DELETE_INPUT";

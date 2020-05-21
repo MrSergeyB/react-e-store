@@ -15,14 +15,14 @@ const Navbar = () => {
             <div className="collapase navbar-collapse" id="navbarMain">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" activeClassName="active" to="/">
+                  <Link className="nav-link" activeclassname="active" to="/">
                     Главная
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
                     className="nav-link"
-                    activeClassName="active"
+                    activeclassname="active"
                     to="/catalog"
                   >
                     Каталог
@@ -31,7 +31,7 @@ const Navbar = () => {
                 <li className="nav-item">
                   <Link
                     className="nav-link"
-                    activeClassName="active"
+                    activeclassname="active"
                     to="/about"
                   >
                     О магазине
@@ -40,7 +40,7 @@ const Navbar = () => {
                 <li className="nav-item">
                   <Link
                     className="nav-link"
-                    activeClassName="active"
+                    activeclassname="active"
                     to="/contacts"
                   >
                     Контакты

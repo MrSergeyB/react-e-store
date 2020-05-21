@@ -1,5 +1,5 @@
 import {
-  GET_INPUTS,
+  GET_TOP_SALES,
   ADD_INPUT,
   SET_LOADING,
   DELETE_INPUT,
@@ -9,19 +9,17 @@ import {
 } from "../actions/types";
 
 const intialState = {
-  list: null,
-  editItem: {},
-  editMode: false,
+  products: null,
   loading: false,
   error: null,
 };
 
 export default (state = intialState, action) => {
   switch (action.type) {
-    case GET_INPUTS:
+    case GET_TOP_SALES:
       return {
         ...state,
-        list: action.payload,
+        products: action.payload,
         loading: false,
       };
 

@@ -1,52 +1,22 @@
 import {
   ADD_INPUT,
   SET_LOADING,
-  GET_INPUTS,
+  GET_TOP_SALES,
   DELETE_INPUT,
   EDIT_INPUT,
   SET_CURRENT,
   INPUTS_ERROR,
 } from "./types";
 
-const http = "http://localhost:7070/api/services/";
-
-// GET INPUTS
-export const getInputs = () => async (dispatch) => {
+// Get Top Sales data
+export const getTopSalesData = () => async (dispatch) => {
+  dispatch(setLoading());
   try {
-    setLoading();
-
-    const res = await fetch(`${http}`);
-
+    const res = await fetch("http://localhost:7070/api/top-sales");
     const data = await res.json();
     console.log(data);
     dispatch({
-      type: GET_INPUTS,
-      payload: data,
-    });
-  } catch (err) {
-    dispatch({
-      type: INPUTS_ERROR,
-      payload: err,
-    });
-  }
-};
-
-// ADD NEW INPUT
-export const addInput = (name, price, content) => async (dispatch) => {
-  try {
-    setLoading();
-
-    const res = await fetch(`${http}`, {
-      method: "POST",
-      body: JSON.stringify({name, price, content}),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await res.json();
-
-    dispatch({
-      type: ADD_INPUT,
+      type: GET_TOP_SALES,
       payload: data,
     });
   } catch (err) {
@@ -78,52 +48,52 @@ export const deleteInput = (id) => async (dispatch) => {
   }
 };
 
-//SET CURRENT
-export const setCurrent = (id) => async (dispatch) => {
-  try {
-    setLoading();
+// //SET CURRENT
+// export const setCurrent = (id) => async (dispatch) => {
+//   try {
+//     setLoading();
 
-    const res = await fetch(`${http}${id}`);
-    const data = await res.json();
+//     const res = await fetch(`${http}${id}`);
+//     const data = await res.json();
 
-    dispatch({
-      type: SET_CURRENT,
-      payload: data,
-    });
-  } catch (err) {
-    dispatch({
-      type: INPUTS_ERROR,
-      payload: err,
-    });
-  }
-};
+//     dispatch({
+//       type: SET_CURRENT,
+//       payload: data,
+//     });
+//   } catch (err) {
+//     dispatch({
+//       type: INPUTS_ERROR,
+//       payload: err,
+//     });
+//   }
+// };
 
-// EDIT INPUT
-export const editInput = (id, name, price, content) => async (dispatch) => {
-  const editeInput = {id, name, price, content};
-  try {
-    setLoading();
+// // EDIT INPUT
+// export const editInput = (id, name, price, content) => async (dispatch) => {
+//   const editeInput = {id, name, price, content};
+//   try {
+//     setLoading();
 
-    const res = await fetch(`${http}`, {
-      method: "POST",
-      body: JSON.stringify(editeInput),
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-    });
+//     const res = await fetch(`${http}`, {
+//       method: "POST",
+//       body: JSON.stringify(editeInput),
+//       headers: {
+//         Accept: "application/json, text/plain, */*",
+//         "Content-Type": "application/json",
+//       },
+//     });
 
-    dispatch({
-      type: EDIT_INPUT,
-      payload: editeInput,
-    });
-  } catch (err) {
-    dispatch({
-      type: INPUTS_ERROR,
-      payload: err,
-    });
-  }
-};
+//     dispatch({
+//       type: EDIT_INPUT,
+//       payload: editeInput,
+//     });
+//   } catch (err) {
+//     dispatch({
+//       type: INPUTS_ERROR,
+//       payload: err,
+//     });
+//   }
+// };
 
 // Set loading to true
 export const setLoading = () => {
