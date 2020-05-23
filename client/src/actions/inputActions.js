@@ -1,5 +1,7 @@
 import {
   ADD_INPUT,
+  GET_CATEGORIES,
+  GET_CATALOG_PRODUCTS,
   SET_LOADING,
   GET_TOP_SALES,
   DELETE_INPUT,
@@ -17,6 +19,44 @@ export const getTopSalesData = () => async (dispatch) => {
     console.log(data);
     dispatch({
       type: GET_TOP_SALES,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: INPUTS_ERROR,
+      payload: err,
+    });
+  }
+};
+
+// Get categories
+export const getCategories = () => async (dispatch) => {
+  dispatch(setLoading());
+  try {
+    const res = await fetch("http://localhost:7070/api/categories");
+    const data = await res.json();
+    console.log(data);
+    dispatch({
+      type: GET_CATEGORIES,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: INPUTS_ERROR,
+      payload: err,
+    });
+  }
+};
+
+// Get catalog products
+export const getCatalogProducts = () => async (dispatch) => {
+  dispatch(setLoading());
+  try {
+    const res = await fetch(" http://localhost:7070/api/items");
+    const data = await res.json();
+    console.log(data);
+    dispatch({
+      type: GET_CATALOG_PRODUCTS,
       payload: data,
     });
   } catch (err) {

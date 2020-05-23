@@ -1,17 +1,21 @@
 import {
   GET_TOP_SALES,
+  GET_CATALOG_PRODUCTS,
   ADD_INPUT,
   SET_LOADING,
   DELETE_INPUT,
   SET_CURRENT,
   EDIT_INPUT,
   INPUTS_ERROR,
+  GET_CATEGORIES,
 } from "../actions/types";
 
 const intialState = {
   products: null,
+  catalogProducts: null,
   loading: false,
   error: null,
+  categories: null,
 };
 
 export default (state = intialState, action) => {
@@ -20,6 +24,19 @@ export default (state = intialState, action) => {
       return {
         ...state,
         products: action.payload,
+        loading: false,
+      };
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload,
+        loading: false,
+      };
+
+    case GET_CATALOG_PRODUCTS:
+      return {
+        ...state,
+        catalogProducts: action.payload,
         loading: false,
       };
 

@@ -33,7 +33,7 @@ const TopSales = (props) => {
           <div className="row">
             {products.map((product) => {
               return (
-                <div className="col-4">
+                <div key={product.id} className="col-4">
                   <div className="card catalog-item-card">
                     <img
                       src={product.images[0]}

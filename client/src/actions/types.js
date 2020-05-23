@@ -5,3 +5,5 @@ export const DELETE_INPUT = "DELETE_INPUT";
 export const SET_CURRENT = "SET_CURRENT";
 export const EDIT_INPUT = "EDIT_INPUT";
 export const INPUTS_ERROR = "INPUTS_ERROR";
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const GET_CATALOG_PRODUCTS = "GET_CATALOG_PRODUCTS";
